@@ -4,40 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>HAKU DECOR — ИНТЕРЬЕРНЫЕ РЕШЕНИЯ</title>
-  
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          }
-        }
-      }
-    }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      -webkit-tap-highlight-color: transparent;
-      box-sizing: border-box;
-    }
     body {
-      background-color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #FFFFFF;
       color: #000000;
-      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
     }
-    
-    /* Скрытие полосы скролла */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -45,571 +22,336 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-
-    /* Плавная анимация раскрытия аккордеонов */
-    .accordion-body {
-      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
-    }
   </style>
 </head>
-<body class="bg-white text-black font-sans selection:bg-black selection:text-white antialiased">
+<body class="bg-white text-black selection:bg-black selection:text-white">
 
-  <!-- ================================================================= -->
-  <!-- 1. ФИКСИРОВАННЫЙ ХЕДЕР                                             -->
-  <!-- ================================================================= -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black">
-    <div class="max-w-md mx-auto px-4 h-14 flex items-center justify-between">
-      <div class="flex items-center space-x-2">
-        <span class="w-2.5 h-2.5 bg-black animate-pulse"></span>
-        <span class="font-black tracking-tighter text-lg uppercase">HAKU DECOR</span>
-      </div>
-      <div class="text-[10px] font-mono tracking-widest text-neutral-500 uppercase border border-neutral-300 px-2 py-0.5">
-        ИЖЕВСК / НОВЫЙ ГОРОД
-      </div>
+  <!-- ХЕДЕР -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-black px-4 py-3.5 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <span class="w-2.5 h-2.5 bg-black inline-block animate-pulse"></span>
+      <span class="font-bold tracking-tight text-lg uppercase">HAKU DECOR</span>
     </div>
+    <span class="text-[11px] uppercase tracking-widest text-neutral-500 border border-neutral-300 px-2 py-0.5">
+      ИЖЕВСК
+    </span>
   </header>
 
-  <!-- ================================================================= -->
-  <!-- 2. ГЛАВНЫЙ ЭКРАН: АВТО-СЛАЙДЕР С ТЕМНЫМ ЭФФЕКТОМ                  -->
-  <!-- ================================================================= -->
-  <section class="relative w-full h-[90dvh] bg-black text-white flex flex-col justify-between overflow-hidden border-b border-black">
-    
-    <!-- Слайдер фоновых фоток (плавная смена каждые 3.5 сек) -->
-    <div id="hero-slider" class="absolute inset-0 z-0">
-      <div class="hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out bg-cover bg-center"
-           style="background-image: url('img/tvzonaGOST (1).jpg');"
-           data-fallback="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200"></div>
-      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center"
-           style="background-image: url('img/kamshpon1.jpg');"
-           data-fallback="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200"></div>
-      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center"
-           style="background-image: url('img/KAMIN (1).jpg');"
-           data-fallback="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1200"></div>
-      <div class="hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center"
-           style="background-image: url('img/KUHN (1).jpg');"
-           data-fallback="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200"></div>
-      
-      <!-- Затемнение в стиле Balenciaga -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/35"></div>
+  <!-- ГЛАВНЫЙ ЭКРАН: АВТО-СЛАЙДЕР НА 3 СЕКУНДЫ -->
+  <section class="relative w-full h-[88vh] bg-black text-white flex flex-col justify-between p-6 overflow-hidden border-b border-black">
+    <div id="hero-slider-box" class="absolute inset-0 z-0">
+      <img src="img/hero_1.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200'" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-50 grayscale contrast-125 transition-opacity duration-1000 ease-in-out" alt="Slide 1">
+      <img src="img/hero_2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200'" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0 grayscale contrast-125 transition-opacity duration-1000 ease-in-out" alt="Slide 2">
+      <img src="img/hero_3.jpg" onerror="this.src='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=1200'" class="hero-slide absolute inset-0 w-full h-full object-cover opacity-0 grayscale contrast-125 transition-opacity duration-1000 ease-in-out" alt="Slide 3">
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/30"></div>
     </div>
 
-    <!-- Верхний тег -->
-    <div class="relative z-10 px-4 pt-6">
-      <div class="inline-block border border-white/40 px-2.5 py-1 text-[10px] font-mono tracking-widest uppercase text-neutral-300">
-        LOOKBOOK 2026 / САЛОН В НОВОМ ГОРОДЕ
-      </div>
+    <div class="relative z-10 text-[11px] tracking-widest uppercase text-neutral-400">
+      [ ШОУРУМ ИНТЕРЬЕРНЫХ МАТЕРИАЛОВ ]
     </div>
 
-    <!-- Главный слоган -->
-    <div class="relative z-10 px-4 pb-6 my-auto">
-      <h1 class="text-4xl sm:text-5xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
+    <div class="relative z-10 my-auto">
+      <h1 class="text-4xl sm:text-6xl font-bold uppercase tracking-tight leading-[0.95] max-w-xl">
         РЕШЕНИЯ<br>
         ДЛЯ ИНТЕРЬЕРА<br>
-        <span class="text-neutral-400">ОТ HAKU DECOR</span>
+        ОТ HAKU DECOR
       </h1>
-      <p class="text-xs font-mono text-neutral-300 uppercase tracking-widest max-w-[320px] leading-relaxed">
-        Бамбуковые панели WPC • Каменный шпон • Гибкий мрамор • ТВ-зоны
+      <p class="text-xs uppercase tracking-wider text-neutral-300 mt-4 max-w-xs">
+        Бамбуковые панели WPC / Каменный шпон / Травертин / Гибкий мрамор
       </p>
     </div>
 
-    <!-- Индикатор и подсказка скролла -->
-    <div class="relative z-10 px-4 py-4 border-t border-white/20 flex items-center justify-between bg-black/40 backdrop-blur-sm">
+    <div class="relative z-10 flex justify-between items-end border-t border-white/20 pt-4">
       <div class="flex gap-1.5" id="slider-dots">
-        <span class="dot w-5 h-1 bg-white transition-all"></span>
-        <span class="dot w-5 h-1 bg-white/30 transition-all"></span>
-        <span class="dot w-5 h-1 bg-white/30 transition-all"></span>
-        <span class="dot w-5 h-1 bg-white/30 transition-all"></span>
+        <span class="dot w-6 h-1 bg-white"></span>
+        <span class="dot w-6 h-1 bg-white/30"></span>
+        <span class="dot w-6 h-1 bg-white/30"></span>
       </div>
-      <a href="#applications" class="text-[11px] font-mono tracking-widest uppercase flex items-center gap-1 hover:text-neutral-300 text-white">
-        СМОТРЕТЬ ОБЪЕКТЫ ↓
-      </a>
+      <span class="text-[10px] tracking-widest uppercase text-neutral-400">ВНИЗ ↓</span>
     </div>
   </section>
 
-
-  <!-- ================================================================= -->
-  <!-- 3. СЕКЦИЯ 00: ОБЛАСТИ ПРИМЕНЕНИЯ (РАСКРЫВАЮЩИЕСЯ СЛАЙДЕРЫ)         -->
-  <!-- ================================================================= -->
-  <section id="applications" class="max-w-md mx-auto border-x border-b-2 border-black bg-neutral-50">
-    <div class="p-4 border-b border-black bg-white">
-      <span class="font-mono text-[10px] tracking-widest text-neutral-500 uppercase block mb-1">ФОТО С ОБЪЕКТОВ</span>
-      <h2 class="text-2xl font-black uppercase tracking-tighter">00 / ОБЛАСТИ ПРИМЕНЕНИЯ</h2>
-      <p class="text-xs font-mono text-neutral-600 mt-1 uppercase">Нажмите на раздел, чтобы раскрыть слайдшоу</p>
+  <!-- 00. ОБЛАСТИ ПРИМЕНЕНИЯ -->
+  <section class="border-b-2 border-black pt-6 pb-8 bg-neutral-50">
+    <div class="px-4 mb-4">
+      <div class="text-[11px] tracking-widest text-neutral-500 uppercase">[00 / КАТАЛОГ РЕАЛИЗАЦИЙ]</div>
+      <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-tight mt-1">ОБЛАСТИ ПРИМЕНЕНИЯ</h2>
     </div>
 
-    <!-- РАЗДЕЛ 1: КУХНИ И ФАРТУКИ -->
-    <div class="border-b border-black">
-      <button onclick="toggleAccordion('app-kitchen', this)" class="w-full p-4 flex items-center justify-between bg-white hover:bg-neutral-100 transition-colors text-left">
-        <div class="flex items-center gap-2">
-          <span class="font-mono font-bold text-xs uppercase">[ 01 ]</span>
-          <span class="font-black text-sm uppercase tracking-tight">КУХНИ И ФАРТУКИ (5 ФОТО)</span>
+    <!-- КУХНЯ -->
+    <div class="mb-8 border-b border-neutral-200 pb-6">
+      <div class="px-4 mb-3 flex justify-between items-baseline">
+        <h3 class="font-bold text-base tracking-tight uppercase">КУХНИ (ФАРТУКИ И ОСТРОВА)</h3>
+      </div>
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-3 px-4 no-scrollbar">
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden">
+          <img src="img/KUHN (1).jpg" class="w-full h-full object-cover" alt="Кухня 1">
         </div>
-        <span class="chevron text-sm font-mono transition-transform duration-300">↓ РАЗВЕРНУТЬ</span>
-      </button>
-
-      <div id="app-kitchen" class="accordion-body max-h-0 overflow-hidden opacity-0 bg-neutral-100">
-        <div class="p-3 border-t border-neutral-300">
-          <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 no-scrollbar pb-2">
-            <!-- 5 ФОТО КУХНИ -->
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KUHN (1).jpg" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800'" class="w-full h-full object-cover" alt="Кухня 1">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KUHN (1)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KUHN (2).jpg" onerror="this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=800'" class="w-full h-full object-cover" alt="Кухня 2">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KUHN (2)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KUHN (3).jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800'" class="w-full h-full object-cover" alt="Кухня 3">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KUHN (3)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KUHN (4).jpg" onerror="this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=800'" class="w-full h-full object-cover" alt="Кухня 4">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KUHN (4)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KUHN (5).jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800'" class="w-full h-full object-cover" alt="Кухня 5">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KUHN (5)</span>
-            </div>
-          </div>
-          <div class="flex justify-between items-center text-[10px] font-mono text-neutral-500 mt-1">
-            <span>← ЛИСТАЙТЕ ПАЛЬЦЕМ →</span>
-            <span>05 ФОТО</span>
-          </div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden">
+          <img src="img/KUHN (2).jpg" class="w-full h-full object-cover" alt="Кухня 2">
+        </div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden">
+          <img src="img/KUHN (3).jpg" class="w-full h-full object-cover" alt="Кухня 3">
+        </div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden">
+          <img src="img/KUHN (4).jpg" class="w-full h-full object-cover" alt="Кухня 4">
+        </div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden">
+          <img src="img/KUHN (5).jpg" class="w-full h-full object-cover" alt="Кухня 5">
         </div>
       </div>
     </div>
 
-    <!-- РАЗДЕЛ 2: ГОСТИНЫЕ И ТВ-ЗОНЫ -->
-    <div class="border-b border-black">
-      <button onclick="toggleAccordion('app-tvgost', this)" class="w-full p-4 flex items-center justify-between bg-white hover:bg-neutral-100 transition-colors text-left">
-        <div class="flex items-center gap-2">
-          <span class="font-mono font-bold text-xs uppercase">[ 02 ]</span>
-          <span class="font-black text-sm uppercase tracking-tight">ГОСТИНЫЕ И ТВ-ЗОНЫ (10 ФОТО)</span>
-        </div>
-        <span class="chevron text-sm font-mono transition-transform duration-300">↓ РАЗВЕРНУТЬ</span>
-      </button>
-
-      <div id="app-tvgost" class="accordion-body max-h-0 overflow-hidden opacity-0 bg-neutral-100">
-        <div class="p-3 border-t border-neutral-300">
-          <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 no-scrollbar pb-2">
-            <!-- 10 ФОТО ТВ-ЗОНЫ И ГОСТИНЫЕ -->
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (1).jpg" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 1">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 01</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (2).jpg" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 2">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 02</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (3).jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 3">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 03</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (4).jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 4">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 04</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (5).jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 5">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 05</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (6).jpg" onerror="this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 6">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 06</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (7).jpg" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 7">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 07</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (8).jpg" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 8">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 08</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (9).jpg" onerror="this.src='https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 9">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 09</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/tvzonaGOST (10).jpg" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=800'" class="w-full h-full object-cover" alt="ТВ-зона 10">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">ГОСТИНАЯ 10</span>
-            </div>
-          </div>
-          <div class="flex justify-between items-center text-[10px] font-mono text-neutral-500 mt-1">
-            <span>← ЛИСТАЙТЕ ПАЛЬЦЕМ →</span>
-            <span>10 ФОТО</span>
-          </div>
-        </div>
+    <!-- ГОСТИНАЯ И ТВ-ЗОНЫ -->
+    <div class="mb-8 border-b border-neutral-200 pb-6">
+      <div class="px-4 mb-3 flex justify-between items-baseline">
+        <h3 class="font-bold text-base tracking-tight uppercase">ГОСТИНЫЕ И ТВ-ЗОНЫ</h3>
+      </div>
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-3 px-4 no-scrollbar">
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (1).jpg" class="w-full h-full object-cover" alt="Гостиная 1"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (2).jpg" class="w-full h-full object-cover" alt="Гостиная 2"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (3).jpg" class="w-full h-full object-cover" alt="Гостиная 3"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (4).jpg" class="w-full h-full object-cover" alt="Гостиная 4"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (5).jpg" class="w-full h-full object-cover" alt="Гостиная 5"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (6).jpg" class="w-full h-full object-cover" alt="Гостиная 6"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (7).jpg" class="w-full h-full object-cover" alt="Гостиная 7"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (8).jpg" class="w-full h-full object-cover" alt="Гостиная 8"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (9).jpg" class="w-full h-full object-cover" alt="Гостиная 9"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/tvzonaGOST (10).jpg" class="w-full h-full object-cover" alt="Гостиная 10"></div>
       </div>
     </div>
 
-    <!-- РАЗДЕЛ 3: КАМИНЫ И АКЦЕНТНЫЕ ЗОНЫ -->
+    <!-- КАМИНЫ -->
     <div>
-      <button onclick="toggleAccordion('app-kamin', this)" class="w-full p-4 flex items-center justify-between bg-white hover:bg-neutral-100 transition-colors text-left">
-        <div class="flex items-center gap-2">
-          <span class="font-mono font-bold text-xs uppercase">[ 03 ]</span>
-          <span class="font-black text-sm uppercase tracking-tight">КАМИНЫ И АКЦЕНТЫ (4 ФОТО)</span>
-        </div>
-        <span class="chevron text-sm font-mono transition-transform duration-300">↓ РАЗВЕРНУТЬ</span>
+      <div class="px-4 mb-3 flex justify-between items-baseline">
+        <h3 class="font-bold text-base tracking-tight uppercase">КАМИННЫЕ ЗОНЫ</h3>
+      </div>
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-3 px-4 no-scrollbar">
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/KAMIN (1).jpg" class="w-full h-full object-cover" alt="Камин 1"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/KAMIN (2).jpg" class="w-full h-full object-cover" alt="Камин 2"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/KAMIN (3).jpg" class="w-full h-full object-cover" alt="Камин 3"></div>
+        <div class="snap-start shrink-0 w-[75vw] sm:w-[320px] aspect-[4/5] bg-neutral-200 border border-black overflow-hidden"><img src="img/KAMIN (4).jpg" class="w-full h-full object-cover" alt="Камин 4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01. БАМБУКОВЫЕ ПАНЕЛИ WPC. ТКАНЬ -->
+  <article class="border-b border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[01 / WPC ТКАНЬ]</span>
+      <span class="text-xs font-bold">3 000 ₽ / М²</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">БАМБУКОВЫЕ ПАНЕЛИ WPC. ТКАНЬ</h3>
+    </div>
+
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tkan1.jpg" class="w-full h-full object-cover" alt="Ткань 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tkan2.jpg" class="w-full h-full object-cover" alt="Ткань 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tkan3.jpg" class="w-full h-full object-cover" alt="Ткань 3"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tkan4.jpg" class="w-full h-full object-cover" alt="Ткань 4"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tkan5.jpg" class="w-full h-full object-cover" alt="Ткань 5"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
       </button>
-
-      <div id="app-kamin" class="accordion-body max-h-0 overflow-hidden opacity-0 bg-neutral-100">
-        <div class="p-3 border-t border-neutral-300">
-          <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 no-scrollbar pb-2">
-            <!-- 4 ФОТО КАМИНОВ -->
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KAMIN (1).jpg" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800'" class="w-full h-full object-cover" alt="Камин 1">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KAMIN (1)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KAMIN (2).jpg" onerror="this.src='https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=800'" class="w-full h-full object-cover" alt="Камин 2">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KAMIN (2)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KAMIN (3).jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="Камин 3">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KAMIN (3)</span>
-            </div>
-            <div class="snap-start shrink-0 w-[78vw] aspect-[4/5] bg-black border border-black overflow-hidden relative">
-              <img src="img/KAMIN (4).jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="Камин 4">
-              <span class="absolute bottom-2 left-2 bg-black/80 text-white font-mono text-[10px] px-2 py-0.5">KAMIN (4)</span>
-            </div>
-          </div>
-          <div class="flex justify-between items-center text-[10px] font-mono text-neutral-500 mt-1">
-            <span>← ЛИСТАЙТЕ ПАЛЬЦЕМ →</span>
-            <span>04 ФОТО</span>
-          </div>
-        </div>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• Декоративные стеновые панели размером 2800х1200х5 мм с натуральной тканью.</p>
+        <p>• Быстрый, простой и удобный монтаж без шума и строительной пыли.</p>
+        <p>• Не нужно предварительно выравнивать стены.</p>
+        <p>• Не требуются дорогостоящие специалисты для установки.</p>
+        <p>• Панели в наличии. В шоуруме можно подобрать фактуру по физическим образцам.</p>
       </div>
     </div>
-  </section>
+  </article>
 
-
-  <!-- ================================================================= -->
-  <!-- 4. ОСНОВНОЙ КАТАЛОГ ПОЗИЦИЙ (6 ТОВАРНЫХ КАТЕГОРИЙ)                 -->
-  <!-- ================================================================= -->
-  <main class="max-w-md mx-auto border-x border-black bg-white">
-    
-    <div class="p-4 border-b border-black flex justify-between items-end bg-white">
-      <div>
-        <span class="font-mono text-[10px] tracking-widest text-neutral-500 uppercase block mb-1">МАТЕРИАЛЫ В НАЛИЧИИ</span>
-        <h2 class="text-2xl font-black uppercase tracking-tighter">КАТАЛОГ ТОВАРОВ</h2>
-      </div>
-      <span class="font-mono text-xs font-bold">[ 06 ПОЗИЦИЙ ]</span>
+  <!-- 02. БАМБУКОВЫЕ ПАНЕЛИ WPC. МЕТАЛЛ -->
+  <article class="border-b border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[02 / WPC METAL]</span>
+      <span class="text-xs font-bold">В НАЛИЧИИ</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">БАМБУКОВЫЕ ПАНЕЛИ WPC. МЕТАЛЛ</h3>
     </div>
 
-    <!-- ==================== ТОВАР 01: WPC ТКАНЬ (tkan1..5) ==================== -->
-    <article class="border-b border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 01 / WPC ТКАНЬ ]</span>
-        <span class="font-mono text-xs font-bold bg-black text-white px-2 py-0.5">3 000 ₽ / М²</span>
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/met1.jpg" class="w-full h-full object-cover" alt="Металл 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/met2.jpg" class="w-full h-full object-cover" alt="Металл 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/met3.jpg" class="w-full h-full object-cover" alt="Металл 3"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
+      </button>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• Уникальный современный материал: WPC панели с металлическим покрытием.</p>
+        <p>• Для современных интерьеров: стены, фасады мебели, скрытые двери, кухонные фартуки и ванные комнаты.</p>
       </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">БАМБУКОВЫЕ ПАНЕЛИ WPC. ТКАНЬ</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">5 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
+    </div>
+  </article>
+
+  <!-- 03. КАМЕННЫЙ ШПОН. 2 ММ -->
+  <article class="border-b border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[03 / РЕАЛЬНЫЙ КАМЕНЬ]</span>
+      <span class="text-xs font-bold">ТОЛЩИНА 2 ММ</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">КАМЕННЫЙ ШПОН. НАТУРАЛЬНЫЙ КАМЕНЬ 2 ММ</h3>
+    </div>
+
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon1.jpg" class="w-full h-full object-cover" alt="Шпон 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon2.jpg" class="w-full h-full object-cover" alt="Шпон 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon3.jpg" class="w-full h-full object-cover" alt="Шпон 3"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon4.jpg" class="w-full h-full object-cover" alt="Шпон 4"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon5.jpg" class="w-full h-full object-cover" alt="Шпон 5"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon6.jpg" class="w-full h-full object-cover" alt="Шпон 6"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/kamshpon7.jpg" class="w-full h-full object-cover" alt="Шпон 7"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
+      </button>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• Натуральный каменный шпон на гибкой подложке: всего 2 мм гибкого камня крупного формата.</p>
+        <p>• Каждый лист уникален и неповторим по фактуре.</p>
+        <p>• Идеален для стен, каминов, мебели, откосов, санузлов и даже фасадов зданий.</p>
+        <p>• Легкий и безопасный монтаж, целостная картина поверхности без швов и разрывов.</p>
+        <p>• Опыт работы с материалом несколько лет, сотни завершенных объектов. В шоуруме представлены все текстуры.</p>
       </div>
+    </div>
+  </article>
 
-      <!-- Карусель с tkan1..5 -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tkan1.jpg" onerror="this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800'" class="w-full h-full object-cover" alt="WPC Ткань 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tkan2.jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="WPC Ткань 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tkan3.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800'" class="w-full h-full object-cover" alt="WPC Ткань 3">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tkan4.jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="WPC Ткань 4">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tkan5.jpg" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800'" class="w-full h-full object-cover" alt="WPC Ткань 5">
-        </div>
+  <!-- 04. ГИБКИЙ КАМЕНЬ ТРАВЕРТИН -->
+  <article class="border-b border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[04 / ТРАВЕРТИН]</span>
+      <span class="text-xs font-bold">3000X1200X4 ММ</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">ГИБКИЙ КАМЕНЬ ТРАВЕРТИН</h3>
+    </div>
+
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tr1.jpg" class="w-full h-full object-cover" alt="Травертин 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tr2.jpg" class="w-full h-full object-cover" alt="Травертин 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tr3.jpg" class="w-full h-full object-cover" alt="Травертин 3"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/tr4.jpg" class="w-full h-full object-cover" alt="Травертин 4"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
+      </button>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• Уникальный современный натуральный материал крупного формата 3000х1200х4 мм.</p>
+        <p>• Быстрый и простой монтаж, предсказуемый стабильный результат в проекте.</p>
+        <p>• Все образцы представлены в салоне Хаку Декор — покажем и научим технологии монтажа.</p>
       </div>
+    </div>
+  </article>
 
-      <!-- Выпадающая спецификация -->
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• Декоративные стеновые панели размером 2800х1200х5 мм с натуральной тканью.</p>
-          <p>• Быстрый, простой и удобный монтаж без шума и строительной пыли.</p>
-          <p>• Не нужно готовить и идеально выравнивать стены.</p>
-          <p>• Не требуются дорогостоящие специалисты.</p>
-          <p class="font-bold text-black">• Панели в наличии на складе в Ижевске.</p>
-        </div>
+  <!-- 05. ГИБКИЙ МРАМОР -->
+  <article class="border-b border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[05 / МРАМОР]</span>
+      <span class="text-xs font-bold">1 И 3 ММ</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">ГИБКИЙ МРАМОР, БАМБУКОВЫЕ ПАНЕЛИ</h3>
+    </div>
+
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam1.jpg" class="w-full h-full object-cover" alt="Мрамор 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam2.jpg" class="w-full h-full object-cover" alt="Мрамор 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam3.jpg" class="w-full h-full object-cover" alt="Мрамор 3"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam4.jpg" class="w-full h-full object-cover" alt="Мрамор 4"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam5.jpg" class="w-full h-full object-cover" alt="Мрамор 5"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam6.jpg" class="w-full h-full object-cover" alt="Мрамор 6"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam7.jpg" class="w-full h-full object-cover" alt="Мрамор 7"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/gibkam8.jpg" class="w-full h-full object-cover" alt="Мрамор 8"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
+      </button>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• Толщина: 1 или 3 мм. Два вида финишного покрытия: матовое и глубокий глянец.</p>
+        <p>• Большой размер панели: 2800х1200х3 мм.</p>
+        <p>• Быстрый и простой монтаж без грязи, строительного шума и пыли.</p>
+        <p>• Область применения: ванные комнаты, гостиные, спальни, зоны ТВ, кухонные фартуки, душевые кабины.</p>
       </div>
-    </article>
+    </div>
+  </article>
 
+  <!-- 06. БАМБУКОВЫЕ ПАНЕЛИ. СЕРИЯ ДЕРЕВО -->
+  <article class="border-b-2 border-black">
+    <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
+      <span class="text-xs uppercase text-neutral-500">[06 / WPC ДЕРЕВО]</span>
+      <span class="text-xs font-bold">РАДИУСНЫЕ СТЕНЫ</span>
+    </div>
+    <div class="px-4 py-2">
+      <h3 class="text-xl font-bold uppercase tracking-tight">БАМБУКОВЫЕ СТЕНОВЫЕ ПАНЕЛИ. СЕРИЯ ДЕРЕВО</h3>
+    </div>
 
-    <!-- ==================== ТОВАР 02: WPC МЕТАЛЛ (met1..3) ==================== -->
-    <article class="border-b border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 02 / WPC МЕТАЛЛ ]</span>
-        <span class="font-mono text-xs font-bold bg-neutral-200 px-2 py-0.5">В НАЛИЧИИ</span>
+    <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam1.jpg" class="w-full h-full object-cover" alt="Дерево 1"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam2.jpg" class="w-full h-full object-cover" alt="Дерево 2"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam3.jpg" class="w-full h-full object-cover" alt="Дерево 3"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam4.jpg" class="w-full h-full object-cover" alt="Дерево 4"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam5.jpg" class="w-full h-full object-cover" alt="Дерево 5"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam6.jpg" class="w-full h-full object-cover" alt="Дерево 6"></div>
+      <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden"><img src="img/bam7.jpg" class="w-full h-full object-cover" alt="Дерево 7"></div>
+    </div>
+
+    <div class="border-t border-black">
+      <button onclick="toggleSection(this)" class="w-full p-4 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
+        <span class="text-xs uppercase tracking-widest font-bold">СПЕЦИФИКАЦИЯ И МОНТАЖ</span>
+        <span class="chevron text-lg transition-transform duration-200">↓</span>
+      </button>
+      <div class="accordion-content hidden px-4 pb-6 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 leading-relaxed">
+        <p>• WPC стеновые панели для современных интерьеров.</p>
+        <p>• Простой и легкий монтаж. Идеальный наружный угол и декорирование радиусных стен.</p>
+        <p>• Самостоятельный монтаж без необходимости выравнивать стены.</p>
+        <p>• Комплектуем оригинальным профилем и клеем.</p>
+        <p>• Огромный выбор дизайнов под дерево, металл, ткань и камень в шоуруме с образцами.</p>
+        <p>• Полное сопровождение и шеф-монтаж.</p>
       </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">БАМБУКОВЫЕ ПАНЕЛИ WPC. МЕТАЛЛ</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">3 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
-      </div>
+    </div>
+  </article>
 
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/met1.jpg" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800'" class="w-full h-full object-cover" alt="Металл 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/met2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800'" class="w-full h-full object-cover" alt="Металл 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/met3.jpg" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800'" class="w-full h-full object-cover" alt="Металл 3">
-        </div>
-      </div>
-
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• Уникальный современный материал: WPC панели с металлическим покрытием.</p>
-          <p>• Для современных интерьеров: подходят для стен, мебели, дверей, фартуков, ванных комнат.</p>
-        </div>
-      </div>
-    </article>
-
-
-    <!-- ==================== ТОВАР 03: КАМЕННЫЙ ШПОН (kamshpon1..7) ==================== -->
-    <article class="border-b border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 03 / КАМЕННЫЙ ШПОН ]</span>
-        <span class="font-mono text-xs font-bold bg-black text-white px-2 py-0.5">НАТУРАЛЬНЫЙ КАМЕНЬ 2 ММ</span>
-      </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">КАМЕННЫЙ ШПОН. 2 ММ</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">7 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
-      </div>
-
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon1.jpg" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon3.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 3">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon4.jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 4">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon5.jpg" onerror="this.src='https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 5">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon6.jpg" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 6">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/kamshpon7.jpg" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800'" class="w-full h-full object-cover" alt="Шпон 7">
-        </div>
-      </div>
-
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• Натуральный каменный шпон на подложке. Всего 2 мм гибкого камня крупного формата.</p>
-          <p>• Каждый лист уникален и неповторим по рисунку.</p>
-          <p>• Для стен, каминов, мебели, откосов, ванных комнат, фартуков и даже фасадов зданий.</p>
-          <p>• Легкий вес и возможность монтажа без стыков и разрывов на радиусных поверхностях.</p>
-          <p>• Сотни реализованных проектов. В шоуруме представлены все форматы и текстуры.</p>
-        </div>
-      </div>
-    </article>
-
-
-    <!-- ==================== ТОВАР 04: ТРАВЕРТИН (tr1..4) ==================== -->
-    <article class="border-b border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 04 / ТРАВЕРТИН ]</span>
-        <span class="font-mono text-xs font-bold bg-neutral-100 border border-black px-2 py-0.5">3000X1200X4 ММ</span>
-      </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">ГИБКИЙ КАМЕНЬ ТРАВЕРТИН</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">4 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
-      </div>
-
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tr1.jpg" onerror="this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800'" class="w-full h-full object-cover" alt="Травертин 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tr2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="Травертин 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tr3.jpg" onerror="this.src='https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=800'" class="w-full h-full object-cover" alt="Травертин 3">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/tr4.jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="Травертин 4">
-        </div>
-      </div>
-
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• Уникальный современный натуральный материал травертин.</p>
-          <p>• Размер листов: 3000х1200х4 мм.</p>
-          <p>• Быстрый и простой монтаж, предсказуемый результат.</p>
-          <p>• В Хаку Декор вы найдете все образцы гибкого камня — подскажем и научим монтажу.</p>
-        </div>
-      </div>
-    </article>
-
-
-    <!-- ==================== ТОВАР 05: ГИБКИЙ МРАМОР (gibkam1..8) ==================== -->
-    <article class="border-b border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 05 / МРАМОР И ПАНЕЛИ ]</span>
-        <span class="font-mono text-xs font-bold bg-neutral-200 px-2 py-0.5">1 ИЛИ 3 ММ</span>
-      </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">ГИБКИЙ МРАМОР, БАМБУКОВЫЕ ПАНЕЛИ</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">8 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
-      </div>
-
-      <!-- Карусель 8 фото с классом shrink-0 -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam1.jpg" onerror="this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam3.jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 3">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam4.jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 4">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam5.jpg" onerror="this.src='https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 5">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam6.jpg" onerror="this.src='https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 6">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam7.jpg" onerror="this.src='https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 7">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/gibkam8.jpg" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=800'" class="w-full h-full object-cover" alt="Мрамор 8">
-        </div>
-      </div>
-
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• Толщина: 1 или 3 мм. Два вида: благородный матовый и глубокий глянцевый.</p>
-          <p>• Большой размер панели: 2800х1200х3 мм.</p>
-          <p>• Быстрый и простой монтаж без грязи, шума и пыли.</p>
-          <p>• Область применения: ванные комнаты, гостиные, спальни, зона ТВ, кухонные фартуки, душевые кабины.</p>
-        </div>
-      </div>
-    </article>
-
-
-    <!-- ==================== ТОВАР 06: СЕРИЯ ДЕРЕВО (bam1..7) ==================== -->
-    <article class="border-b-2 border-black">
-      <div class="p-4 flex justify-between items-baseline border-b border-neutral-200">
-        <span class="font-mono text-xs font-bold uppercase">[ 06 / WPC ДЕРЕВО ]</span>
-        <span class="font-mono text-xs font-bold bg-neutral-100 border border-black px-2 py-0.5">РАДИУСНЫЕ СТЕНЫ</span>
-      </div>
-      <div class="px-4 py-2">
-        <h3 class="text-xl font-black uppercase tracking-tight">БАМБУКОВЫЕ ПАНЕЛИ. СЕРИЯ ДЕРЕВО</h3>
-        <p class="font-mono text-[11px] text-neutral-500 uppercase mt-0.5">7 ФОТО В КАРУСЕЛИ • СВАЙП ВБОК</p>
-      </div>
-
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-2 px-4 no-scrollbar pb-3">
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam1.jpg" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 1">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam2.jpg" onerror="this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 2">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam3.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 3">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam4.jpg" onerror="this.src='https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 4">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam5.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 5">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam6.jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 6">
-        </div>
-        <div class="snap-start shrink-0 w-[82vw] aspect-square bg-neutral-100 border border-black overflow-hidden">
-          <img src="img/bam7.jpg" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800'" class="w-full h-full object-cover" alt="Дерево 7">
-        </div>
-      </div>
-
-      <div class="border-t border-black">
-        <button onclick="toggleSpec(this)" class="w-full p-3.5 flex justify-between items-center text-left hover:bg-neutral-100 transition-colors">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">ХАРАКТЕРИСТИКИ И МОНТАЖ</span>
-          <span class="chevron font-mono text-xs transition-transform duration-200">↓ РАЗВЕРНУТЬ</span>
-        </button>
-        <div class="spec-content hidden px-4 pb-5 pt-2 text-xs space-y-2 border-t border-neutral-200 bg-neutral-50 font-mono">
-          <p>• WPC стеновые панели для современных интерьеров под фактуру натурального дерева.</p>
-          <p>• Простой и легкий монтаж без выравнивания основания.</p>
-          <p>• Идеальный наружный угол и возможность декорирования радиусных стен.</p>
-          <p>• Комплектуем оригинальным профилем и монтажным клеем.</p>
-          <p>• Большой шоурум с образцами в Ижевске, сопровождение и монтаж.</p>
-        </div>
-      </div>
-    </article>
-
-  </main>
-
-
-  <!-- ================================================================= -->
-  <!-- 5. B2B УСЛОВИЯ ДЛЯ ДИЗАЙНЕРОВ                                      -->
-  <!-- ================================================================= -->
-  <section class="max-w-md mx-auto p-6 bg-black text-white border-x border-b border-black">
-    <div class="font-mono text-[10px] text-neutral-400 uppercase tracking-widest mb-2">[ ПАРТНЕРСКАЯ ПРОГРАММА ]</div>
-    <h3 class="text-3xl font-black uppercase tracking-tight leading-none mb-4">УСЛОВИЯ ДЛЯ ДИЗАЙНЕРОВ</h3>
-    
-    <ul class="font-mono text-xs space-y-3 text-neutral-300 uppercase tracking-wider mb-6">
-      <li class="flex items-start gap-2"><span>▪</span><span>Чемоданы и веера с живыми образцами на примерку в ваши проекты</span></li>
-      <li class="flex items-start gap-2"><span>▪</span><span>Агентское вознаграждение (% с комплектации каждого объекта)</span></li>
-      <li class="flex items-start gap-2"><span>▪</span><span>3D-текстуры высокого разрешения для визуализаций</span></li>
-      <li class="flex items-start gap-2"><span>▪</span><span>Шоурум в Новом Городе для выбора фактур вместе с клиентами</span></li>
+  <!-- УСЛОВИЯ ДЛЯ ДИЗАЙНЕРОВ (БЕЗ УПОМИНАНИЯ ВОЗНАГРАЖДЕНИЯ) -->
+  <section class="p-6 bg-black text-white border-b border-black">
+    <div class="text-[11px] text-neutral-400 uppercase tracking-widest mb-2">[ СОТРУДНИЧЕСТВО ]</div>
+    <h3 class="text-2xl font-bold uppercase tracking-tight leading-none mb-4">УСЛОВИЯ ДЛЯ ДИЗАЙНЕРОВ</h3>
+    <ul class="text-xs space-y-3 text-neutral-300 uppercase tracking-wider mb-6">
+      <li>• Чемоданы и веера с образцами на примерку на ваши объекты</li>
+      <li>• 3D-текстуры материалов для визуализаций</li>
+      <li>• Шоурум в Новом Городе для совместных встреч с клиентами</li>
     </ul>
-
-    <div class="border-t border-neutral-800 pt-4 flex justify-between items-center text-[10px] font-mono text-neutral-400 uppercase">
-      <span>ИЖЕВСК / НОВЫЙ ГОРОД</span>
-      <span>ПОД КЛЮЧ</span>
+    <div class="border-t border-neutral-800 pt-4 flex justify-between items-center">
+      <span class="text-xs uppercase text-neutral-400">ШОУРУМ: ИЖЕВСК, НОВЫЙ ГОРОД</span>
     </div>
   </section>
 
-
-  <!-- ================================================================= -->
-  <!-- 6. ФУТЕР И СВЯЗЬ                                                  -->
-  <!-- ================================================================= -->
-  <footer class="max-w-md mx-auto p-6 bg-white text-black border-x border-black space-y-4">
-    <div class="font-mono text-xs uppercase tracking-widest text-neutral-500">
-      ПРЯМАЯ СВЯЗЬ С РУКОВОДИТЕЛЕМ (КИРИЛЛ)
+  <!-- ФУТЕР -->
+  <footer class="p-6 bg-white text-black space-y-4">
+    <div class="text-xs uppercase tracking-widest text-neutral-500">
+      КОНТАКТЫ ДЛЯ СВЯЗИ
     </div>
-
     <div class="grid grid-cols-1 gap-2">
-      <!-- Кнопка Telegram -->
       <a href="https://t.me/KlimovK" target="_blank" rel="noopener"
          class="w-full py-4 bg-black text-white text-center font-mono text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 active:scale-[0.99] transition-all">
         НАПИСАТЬ В TELEGRAM 
@@ -625,72 +367,65 @@
         ПОЗВОНИТЬ В САЛОН
       </a>
     </div>
-
-    <div class="pt-4 border-t border-neutral-200 flex justify-between items-center text-[10px] font-mono text-neutral-400 uppercase">
+    <div class="pt-4 border-t border-neutral-200 flex justify-between items-center text-[10px] text-neutral-400 uppercase">
       <span>© 2026 HAKU DECOR</span>
-      <span>IZHEVSK / BALENCIAGA TECH</span>
+      <span>ИЖЕВСК</span>
     </div>
   </footer>
 
-
-  <!-- ================================================================= -->
-  <!-- 7. ИНТЕРАКТИВНЫЕ СКРИПТЫ                                         -->
-  <!-- ================================================================= -->
+  <!-- СКРИПТ: СЛАЙДЕР НА 3 СЕКУНДЫ И АККОРДЕОНЫ -->
   <script>
-    // 1. Автопереключение слайдшоу в Hero (каждые 3.5 сек)
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    const heroDots = document.querySelectorAll('#slider-dots .dot');
-    let heroIndex = 0;
+    // Автоматическое переключение каждые 3 секунды (3000 мс)
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('#slider-dots .dot');
+    let activeIndex = 0;
 
-    if (heroSlides.length > 1) {
+    if (slides.length > 1) {
       setInterval(() => {
-        heroSlides[heroIndex].classList.remove('opacity-100');
-        heroSlides[heroIndex].classList.add('opacity-0');
-        heroDots[heroIndex].classList.remove('bg-white');
-        heroDots[heroIndex].classList.add('bg-white/30');
+        slides[activeIndex].classList.remove('opacity-50');
+        slides[activeIndex].classList.add('opacity-0');
+        dots[activeIndex].classList.remove('bg-white');
+        dots[activeIndex].classList.add('bg-white/30');
 
-        heroIndex = (heroIndex + 1) % heroSlides.length;
+        activeIndex = (activeIndex + 1) % slides.length;
 
-        heroSlides[heroIndex].classList.remove('opacity-0');
-        heroSlides[heroIndex].classList.add('opacity-100');
-        heroDots[heroIndex].classList.remove('bg-white/30');
-        heroDots[heroIndex].classList.add('bg-white');
-      }, 3500);
+        slides[activeIndex].classList.remove('opacity-0');
+        slides[activeIndex].classList.add('opacity-50');
+        dots[activeIndex].classList.remove('bg-white/30');
+        dots[activeIndex].classList.add('bg-white');
+      }, 3000);
     }
 
-    // 2. Раскрытие разделов «Области применения»
-    function toggleAccordion(elementId, btn) {
-      const container = document.getElementById(elementId);
-      const chevron = btn.querySelector('.chevron');
-      const isOpen = container.style.maxHeight && container.style.maxHeight !== '0px';
-
-      if (isOpen) {
-        container.style.maxHeight = '0px';
-        container.classList.remove('opacity-100');
-        container.classList.add('opacity-0');
-        chevron.textContent = '↓ РАЗВЕРНУТЬ';
-      } else {
-        container.style.maxHeight = container.scrollHeight + 'px';
-        container.classList.remove('opacity-0');
-        container.classList.add('opacity-100');
-        chevron.textContent = '↑ СВЕРНУТЬ';
-      }
-    }
-
-    // 3. Раскрытие спецификаций товаров
-    function toggleSpec(button) {
+    // Аккордеоны
+    function toggleSection(button) {
       const content = button.nextElementSibling;
       const chevron = button.querySelector('.chevron');
       const isHidden = content.classList.contains('hidden');
-
+      
       if (isHidden) {
         content.classList.remove('hidden');
-        chevron.textContent = '↑ СВЕРНУТЬ';
+        chevron.style.transform = 'rotate(180deg)';
       } else {
         content.classList.add('hidden');
-        chevron.textContent = '↓ РАЗВЕРНУТЬ';
+        chevron.style.transform = 'rotate(0deg)';
       }
     }
   </script>
 </body>
 </html>
+
+
+<a href="https://t.me/KlimovK" target="_blank" rel="noopener"
+         class="w-full py-4 bg-black text-white text-center font-mono text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 active:scale-[0.99] transition-all">
+        НАПИСАТЬ В TELEGRAM 
+      </a>
+      <a href="Ижевск ул. 50 лет ВЛКСМ 6" target="_blank" rel="noopener"
+         class="w-full py-4 bg-black text-white text-center font-mono text-xs font-bold uppercase tracking-widest hover:bg-neutral-800 active:scale-[0.99] transition-all">
+        НАШ ШОУРУМ
+      </a>
+
+      <!-- Кнопка звонка -->
+      <a href="tel:+79128552685"
+         class="w-full py-4 border border-black text-center font-mono text-xs font-bold uppercase tracking-widest hover:bg-neutral-100 active:scale-[0.99] transition-all">
+        ПОЗВОНИТЬ В САЛОН
+      </a>
